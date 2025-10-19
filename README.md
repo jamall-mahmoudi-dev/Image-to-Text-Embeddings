@@ -46,29 +46,31 @@ Image-to-Text-Embeddings/
 - Docker (for running Qdrant locally)  
 - Install dependencies:
 
-
+```
 pip install -r requirements.txt
 
 docker run -p 6333:6333 qdrant/qdrant
-
+```
  How to Run
 
 Place your images in the data/ folder.
-
+```
 Configure Qdrant in config/config.py:
 QDRANT_HOST = "127.0.0.1"
 QDRANT_PORT = 6333
 COLLECTION_NAME = "image_embeddings"
 Run the pipeline:
 python -m scripts.run_pipeline
-
+```
+```
 Check output:
 Generated caption: a white nissan suv with a black rim
 Embedding length: 384
 Collection 'image_embeddings' already exists.
 Embedding inserted successfully.
 Pipeline completed successfully.
-
+```
+```
  Workflow Diagram
  flowchart LR
     A[Images in data/] --> B[BLIP Model]
@@ -77,7 +79,7 @@ Pipeline completed successfully.
     D --> E[Vector Embeddings]
     C & E --> F[Qdrant VectorDB]
     F --> G[Semantic Search / Recommendations]
-
+```
  Key Features
 
 BLIP: Generates high-quality captions.
