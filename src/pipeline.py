@@ -4,12 +4,12 @@ from tqdm import tqdm
 from config.config import IMAGE_FOLDER
 from image_captioning import image_to_text
 from embeddings import get_image_embedding
-from pinecone_utils import save_embedding_to_pinecone
+from qdrant_utils import save_embedding_to_qdrant
 
 def process_image(image_path):
     caption = image_to_text(image_path)
     embedding = get_image_embedding(image_path)
-    save_embedding_to_pinecone(image_path, embedding, {"caption": caption})
+    save_embedding_to_qdrant(image_path, embedding, {"caption": caption})
     return image_path, caption
 
 def run_pipeline():

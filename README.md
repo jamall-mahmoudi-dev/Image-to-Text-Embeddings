@@ -17,3 +17,5 @@ src/pipeline.py: Executes the pipeline concurrently using ThreadPoolExecutor, re
 notebooks/test_pipeline.ipynb: Used for testing and experimenting with the pipeline and inspecting embedding results.
 
 scripts/run_pipeline.py: A runnable script to start the pipeline from the terminal with a single command.
+# vectorDB on Docker 
+docker run -p 6333:6333 qdrant/qdrant
