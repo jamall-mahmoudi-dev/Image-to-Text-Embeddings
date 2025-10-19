@@ -64,7 +64,7 @@ python -m scripts.run_pipeline
 ```
 ```
 Check output:
-Generated caption: a white nissan suv with a black rim
+Generated caption: <span style="color: #00cc66;">a white Nissan SUV with a black rim</span>
 Embedding length: 384
 Collection 'image_embeddings' already exists.
 Embedding inserted successfully.
