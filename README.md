@@ -18,12 +18,12 @@ This project allows you to:
 - Enable downstream tasks like **image search, clustering, or recommendation systems**.
 
 ---
-
+```
 ##  Project Structure
 
+
 Image-to-Text-Embeddings/
-│
-├─ README.md 
+├─ README.md # Project overview and instructions
 ├─ requirements.txt # Python dependencies
 ├─ config/
 │ └─ config.py # API keys, Qdrant config
@@ -37,7 +37,7 @@ Image-to-Text-Embeddings/
 │ └─ run_pipeline.py # Launch pipeline from terminal
 └─ notebooks/
 └─ test_pipeline.ipynb # Testing and experimenting with embeddings
-
+```
 ...................................................................
 
 ##  Prerequisites
