@@ -64,7 +64,7 @@ python -m scripts.run_pipeline
 ```
 ```
 Check output:
-Generated caption: `a white Nissan SUV with a black rim`
+Generated caption: a white Nissan SUV with a black rim
 Embedding length: 384
 Collection 'image_embeddings' already exists.
 Embedding inserted successfully.
@@ -117,7 +117,8 @@ Captioning:
 
 Each image is processed using the BLIP model, generating a short and accurate textual description.
 
-Example: For an image of a car, the output might be `a white Nissan SUV with a black rim`.
+Example: For an image of a car, the output might be <span style="color: #00cc66;">a white Nissan SUV with a black rim</span>
+.
 
 Embedding:
 
