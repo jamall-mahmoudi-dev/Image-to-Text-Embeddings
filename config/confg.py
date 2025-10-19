@@ -1,5 +1,4 @@
-# Qdrant configuration
-QDRANT_URL = "http://localhost:6333"  # local
-QDRANT_API_KEY = None  # if use service outside AWS
-# path image
+QDRANT_HOST = "192.168.220.128"
+QDRANT_PORT = 6333
+COLLECTION_NAME = "image_embeddings"
 IMAGE_FOLDER = "./data/"

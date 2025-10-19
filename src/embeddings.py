@@ -1,13 +1,6 @@
-from transformers import CLIPProcessor, CLIPModel
-from PIL import Image
-import torch
+from sentence_transformers import SentenceTransformer
 
-clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
-clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
-
-def get_image_embedding(image_path):
-    image = Image.open(image_path).convert("RGB")
-    inputs = clip_processor(images=image, return_tensors="pt")
-    with torch.no_grad():
-        embedding = clip_model.get_image_features(**inputs)
-    return embedding[0].numpy()
+def get_text_embedding(text: str):
+    model = SentenceTransformer("all-MiniLM-L6-v2")
+    embedding = model.encode(text)
+    return embedding.tolist()

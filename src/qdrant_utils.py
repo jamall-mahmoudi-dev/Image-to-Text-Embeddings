@@ -1,33 +1,29 @@
 from qdrant_client import QdrantClient
-from qdrant_client.http.models import VectorParams
-from config.config import QDRANT_URL, QDRANT_API_KEY
+from qdrant_client.http import models
+from config.config import QDRANT_HOST, QDRANT_PORT, COLLECTION_NAME
 
-# connections 
-client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
+def get_qdrant_client():
+    return QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
 
-COLLECTION_NAME = "image_embeddings"
+def create_collection_if_not_exists():
+    client = get_qdrant_client()
+    collections = client.get_collections().collections
+    names = [c.name for c in collections]
+    if COLLECTION_NAME not in names:
+        client.create_collection(
+            collection_name=COLLECTION_NAME,
+            vectors_config=models.VectorParams(size=384, distance=models.Distance.COSINE)
+        )
+        print(f" Created collection '{COLLECTION_NAME}'")
+    else:
+        print(f" Collection '{COLLECTION_NAME}' already exists.")
 
-# create  collection if Not existe
-if COLLECTION_NAME not in client.get_collections().collections:
-    client.recreate_collection(
-        collection_name=COLLECTION_NAME,
-        vectors_config=VectorParams(size=512, distance="Cosine")  # CLIP embedding size
-    )
-
-def save_embedding_to_qdrant(id, embedding, metadata=None):
+def insert_embedding(vector, caption):
+    client = get_qdrant_client()
     client.upsert(
         collection_name=COLLECTION_NAME,
-        points=[{
-            "id": id,
-            "vector": embedding.tolist(),
-            "payload": metadata or {}
-        }]
+        points=[
+            models.PointStruct(id=1, vector=vector, payload={"caption": caption})
+        ],
     )
-
-def search_embedding(query_embedding, top_k=5):
-    result = client.search(
-        collection_name=COLLECTION_NAME,
-        query_vector=query_embedding.tolist(),
-        top=top_k
-    )
-    return result
+    print(" Embedding inserted successfully.")
