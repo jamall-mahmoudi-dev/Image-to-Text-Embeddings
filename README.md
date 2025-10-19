@@ -64,7 +64,7 @@ python -m scripts.run_pipeline
 ```
 ```
 Check output:
-Generated caption: <span style="color: #00cc66;">a white Nissan SUV with a black rim</span>
+Generated caption: `a white Nissan SUV with a black rim`
 Embedding length: 384
 Collection 'image_embeddings' already exists.
 Embedding inserted successfully.
@@ -108,7 +108,7 @@ CLIP Model (OpenAI)
 
 Qdrant Vector Database
 
-...............................................
+
 🔹 How It Works
 
 This project provides an automated pipeline to convert images into text captions and vector embeddings:
@@ -117,7 +117,7 @@ Captioning:
 
 Each image is processed using the BLIP model, generating a short and accurate textual description.
 
-Example: For an image of a car, the output might be "a white Nissan SUV with a black rim".
+Example: For an image of a car, the output might be `a white Nissan SUV with a black rim`.
 
 Embedding:
 
@@ -171,3 +171,5 @@ Extract insights from images, such as inventory analysis, product review, or mar
 Research & Academic Projects:
 
 Study semantic similarity, embeddings, and vector search on image datasets.
+
+......
