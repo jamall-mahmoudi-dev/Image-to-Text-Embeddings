@@ -7,7 +7,7 @@
 A **robust pipeline** to convert images into **text captions** and **vector embeddings**, stored in a **vector database (Qdrant)** for fast similarity search, AI recommendations, or semantic retrieval.
 
 ---
-
+#new chabge for test
 ##  Project Goal
 
 This project allows you to:
